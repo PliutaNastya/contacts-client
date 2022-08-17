@@ -71,6 +71,33 @@
           background-color: var(--color-primary-100);
           padding: 10px;
       }
+      .input__message{
+          font-size: 14px;
+          color: darkred;
+      }
+      .lds-dual-ring {
+          margin: 0 auto;
+          width: 30px;
+          height: 30px;
+      }
+      .lds-dual-ring:after {
+          content: " ";
+          display: block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          border: 6px solid #fff;
+          border-color: #fff transparent #fff transparent;
+          animation: lds-dual-ring 1.2s linear infinite;
+      }
+      @keyframes lds-dual-ring {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: rotate(360deg);
+          }
+      }
   </style>
 </head>
 <body>
@@ -78,29 +105,18 @@
 <h1 class='title'>Contacts app</h1>
 
 <ul class='contacts'>
-  <li class='contact'>
-    <h2 class='contact__title'>
-      Wife
-    </h2>
-    <a href='tel:+380111111111'>+380111111111</a>
-  </li>
-  <li class='contact'>
-    <h2 class='contact__title'>
-      Wife
-    </h2>
-    <a href='tel:+380111111111'>+380111111111</a>
-  </li>
+  <li class='loading lds-dual-ring'></li>
 </ul>
 
 <form action='' class='form'>
   <label class='input'>
     Contact name
-    <input type='text' class='input__input' name='name'>
+    <input type='text' class='input__input' name='name' data-min="4" data-max="20">
     <span class='input__message'></span>
   </label>
   <label class='input'>
     Contact number
-    <input type='text' class='input__input' name='number'>
+    <input type='text' class='input__input' name='number' data-min="4" data-max="20">
     <span class='input__message'></span>
   </label>
   <button type='submit'>
